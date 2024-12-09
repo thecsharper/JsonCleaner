@@ -38,8 +38,8 @@ class Program
 {
     static void Main()
     {
-        string json = @"{ ""example"": ""Hello\u0026World"" }";
-        string result = JsonEscapeSequenceReplacer.ReplaceUtfEscapeSequences(json);
+        var json = @"{ ""example"": ""Hello\u0026World"" }";
+        var result = JsonEscapeSequenceReplacer.ReplaceUtfEscapeSequences(json);
 
         Console.WriteLine("Original JSON: " + json);
         Console.WriteLine("Processed JSON: " + result);
