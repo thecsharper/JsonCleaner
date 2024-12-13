@@ -3,7 +3,7 @@ namespace JsonCleaner.Tests
     public class JsonCleanerTests
     {
         [Fact]
-        public void Test1()
+        public void JsonCleaner_Cleans_Success()
         {
             var json = @"{ ""example"": ""Hello\u0026World"" }";
 
