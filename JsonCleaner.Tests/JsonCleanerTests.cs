@@ -11,5 +11,16 @@ namespace JsonCleaner.Tests
 
             Assert.Equal("{ \"example\": \"Hello&World\" }", cleaned);
         }
+
+
+        [Fact]
+        public void JsonCleaner_Noclean_Success()
+        {
+            var json = @"{ ""example"": ""Hello&World"" }";
+
+            var cleaned = JsonEscapeSequenceReplacer.ReplaceUtfEscapeSequences(json);
+
+            Assert.Equal("{ \"example\": \"Hello&World\" }", cleaned);
+        }
     }
 }
