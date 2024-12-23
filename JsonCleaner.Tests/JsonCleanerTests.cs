@@ -82,5 +82,15 @@ namespace JsonCleaner.Tests
 
             Assert.Equal(string.Empty, cleaned);
         }
+
+        [Fact]
+        public void JsonCleaner_WontCleanHighOrder_Success()
+        {
+            var json = @"{ ""example"": ""\u19fc"" }";
+
+            var cleaned = JsonEscapeSequenceReplacer.ReplaceUtfEscapeSequences(json);
+
+            Assert.Equal("{ \"example\": \"\\u19fc\" }", cleaned);
+        }
     }
 }
