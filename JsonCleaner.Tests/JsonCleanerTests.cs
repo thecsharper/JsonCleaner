@@ -1,4 +1,4 @@
-namespace JsonCleaner.Tests
+﻿namespace JsonCleaner.Tests
 {
     public class JsonCleanerTests
     {
@@ -91,6 +91,16 @@ namespace JsonCleaner.Tests
             var cleaned = JsonEscapeSequenceReplacer.ReplaceUtfEscapeSequences(json);
 
             Assert.Equal("{ \"example\": \"\\u19fc\" }", cleaned);
+        }
+
+        [Fact]
+        public void JsonCleaner_CleanHighOrder_Success()
+        {
+            var json = @"෯";
+
+            var cleaned = JsonEscapeSequenceReplacer.ReplaceUtfEscapeSequences(json);
+
+            Assert.Equal("෯", cleaned);
         }
     }
 }
