@@ -103,15 +103,14 @@
             Assert.Equal("෯", cleaned);
         }
 
-        // TODO fix test to fail tryparse
         [Fact]
         public void JsonCleaner_CleanHighOrder_Fails()
         {
-            var json = @"#.##";
+            var json = @"99999999999999999999";
 
             var cleaned = JsonEscapeSequenceReplacer.ReplaceUtfEscapeSequences(json);
 
-            Assert.Equal("#.##", cleaned);
+            Assert.Equal("99999999999999999999", cleaned);
         }
     }
 }
